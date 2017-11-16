@@ -1,0 +1,27 @@
+<% include partials/navigation %>
+
+<div class="container text-center p-5">
+  <h1>Welcome to Learn about me</h1>
+
+  <div class="row">
+    <% users.forEach(function(user) { %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <a href="/users/<%= user.username %>">
+                <%= user.name() %>
+              </a>
+            </div>
+            <% if (user.bio) { %>
+              <p><%= user.bio %></p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</div>
+
+<% include partials/footer %>

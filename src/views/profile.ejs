@@ -1,0 +1,17 @@
+<% include partials/navigation %>
+
+  <pre><%= currentUser %></pre>
+
+  <% if ((currentUser) && (currentUser.id) === user.id) {%>
+    <a href="/edit">Edit your profile</a>
+  <% } %>
+
+  <pre><%= locals.currentUser %></pre>
+  <h1><%= user.name() %></h1>
+  <h2>Joined on <%= user.createdAt %></h2>
+
+  <% if(user.bio) { %>
+    <p><%= user.bio %></p>
+  <% } %>
+
+<% include partials/footer %>

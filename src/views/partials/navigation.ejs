@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LAM</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">LAM</a>
+
+
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav ml-auto">
+        <% if (locals.currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/edit">
+              Hello <%= currentUser.name() %>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">
+              Log out
+            </a>
+          </li>
+        <% } else { %>
+            <li class="nav-item">
+              <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/signup" class="nav-link">Signup</a>
+            </li>
+            <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 m-5 mx-auto">
+        <% errors.forEach(function(error) { %>
+          <div class="alert alert-danger">
+            <%= error %>
+          </div>
+        <% }) %>
+
+        <% infos.forEach(function(info) { %>
+          <div class="alert alert-info">
+            <%= info %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>

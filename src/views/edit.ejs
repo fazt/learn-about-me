@@ -1,0 +1,27 @@
+<% include partials/navigation %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h1>Edit your profile</h1>
+          </div>
+
+          <form action="/edit" method="post">
+            <div class="form-group">
+              <input name="displayname" type="text" class="form-control" placeholder="Display name" value="<%= currentUser.displayName || "" %>">
+            </div>
+            <div class="form-group">
+              <textarea name="bio" class="form-control" placeholder="Tell us about yourself!"> <%= currentUser.bio || "" %></textarea>
+            </div>
+            <input type="submit" value="Update" class="btn btn-primary btn-block">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>
